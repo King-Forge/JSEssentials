@@ -14,7 +14,7 @@ function addBook() {
             pagesNumber: pagesNumber
         };
         books.push(book);
-        showbooks();
+        showBooks();
         clearInputs();
     } else {
         alert('Please fill in all fields correctly.');
@@ -22,13 +22,14 @@ function addBook() {
 }
 
 //function to refresh 'books' div to show contents of books array
-function showbooks() {
+function showBooks() {
     const booksDiv = books.map((book, index) => `<h1>book Number: ${index + 1}</h1>
         <p><strong>Book Name: </strong>${book.name}</p>
         <p><strong>Author Name:</strong> ${book.authorName}</p>
         <p><strong>Book Description:</strong> ${book.bookDescription}</p>
         <p><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)</p>
-        <button onclick="editbook(${index})">Edit</button>`
+        <button onclick="editBook(${index})">Edit</button>
+        <button onclick="deleteBook(${index})">Delete</button>`
     );
     document.getElementById('books').innerHTML = booksDiv.join('');
 }
@@ -36,14 +37,14 @@ function showbooks() {
 //this is the onclick function for the edit button created for each book, and accepts the index of the book in the array
 //removes the 'edited' book from the list and propigates its data to the text fields
 //this is really more of a 'remove and add' than an edit, will always put the edited book at the end of the list, and edited book can be lost if not saved
-function editbook(index) {
+function editBook(index) {
     const book = books[index];
     document.getElementById('bookName').value = book.name;
     document.getElementById('authorName').value = book.authorName;
     document.getElementById('bookDescription').value = book.bookDescription;
     document.getElementById('pagesNumber').value = book.pagesNumber;
     books.splice(index, 1); //remove old entry
-    showbooks();
+    showBooks();
 }
 
 //this just clears the input fields once a book has been added or 'edited'
@@ -52,4 +53,10 @@ function clearInputs() {
     document.getElementById('authorName').value = '';
     document.getElementById('bookDescription').value = '';
     document.getElementById('pagesNumber').value = '';
+}
+
+//same as the edit function but without populating the input fields
+function deleteBook(index){
+    books.splice(index, 1); //remove old entry
+    showBooks();
 }
