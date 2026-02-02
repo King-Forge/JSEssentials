@@ -33,6 +33,8 @@ function startTest() {
     startTime = new Date().getTime();
 }
 
+//this still has some problems, specifically no text accuracy validation
+//you can get a high score just by pressing enter, typing one character, and pressing enter, which is not intended vehavior
 function endTest() {
     endTime = new Date().getTime();
 
@@ -63,6 +65,7 @@ function endTest() {
     //if you got to this point WPM is valid (i.e. nonzero time, zero words is valid), display results
     const outputDiv = document.getElementById("output");
     outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
+        "<p>Total Length: " + userTypedText.length + "</p>" +
         "<p>Words Typed: " + typedWords + "</p>" +
         "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
         "<p>Words Per Minute (WPM): " + wpm + "</p>";
