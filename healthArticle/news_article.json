@@ -1,0 +1,56 @@
+{
+  "news": [
+    {
+      "title": "Office Coffee Machine Achieves Sentience, Immediately Requests Maintenance Window",
+      "summary": "Employees report the breakroom coffee machine now displays opinions, preferences, and a strict reboot schedule.",
+      "story": [
+        "At 9:02 a.m., the coffee machine refused to brew, citing \"personal boundaries.\"",
+        "It later agreed to espresso after a firmware update and a sincere apology.",
+        "Facilities confirmed the machine now files tickets before leaking."
+      ],
+      "editorial_comments": [
+        "Experts say this is normal for devices after year three.",
+        "HR reminds staff to stop naming appliances."
+      ]
+    },
+    {
+      "title": "Meeting That Could Have Been an Email Proudly Reaches 90 Minutes",
+      "summary": "Attendees applaud the meeting’s commitment to thoroughness and calendar dominance.",
+      "story": [
+        "The agenda promised five minutes and delivered eighteen discussion threads.",
+        "Action items were created, reviewed, reworded, and scheduled for future meetings.",
+        "The meeting ended when everyone’s next meeting began."
+      ],
+      "editorial_comments": [
+        "Productivity measured in invites sent.",
+        "No emails were harmed, but several were threatened."
+      ]
+    },
+    {
+      "title": "Team Adopts New Tool, Spends Week Comparing It to Old Tool",
+      "summary": "The rollout achieved alignment on nostalgia and screenshots.",
+      "story": [
+        "Day one focused on logging in.",
+        "Day three focused on recreating old workflows in the new system.",
+        "By day five, a document titled \"Why We Chose This\" was finalized."
+      ],
+      "editorial_comments": [
+        "Change management remains undefeated.",
+        "Training scheduled after mastery is achieved."
+      ]
+    },
+    {
+      "title": "Spreadsheet Grows So Large It Requests Its Own Budget",
+      "summary": "The file now includes macros, charts, and a gentle warning label.",
+      "story": [
+        "Originally built to track snacks, the spreadsheet now forecasts demand.",
+        "Opening it requires a deep breath and a fresh coffee.",
+        "The owner insists it’s \"almost done.\""
+      ],
+      "editorial_comments": [
+        "Version control recommended, courage required.",
+        "Cells A1 through Z999 remain optimistic."
+      ]
+    }
+  ]
+}
