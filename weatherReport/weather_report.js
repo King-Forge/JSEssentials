@@ -5,16 +5,28 @@ function showWeatherDetails(event) {
     event.preventDefault();
 
     //lab built on an older version of OpenWeather that did geocoding and weather retrieval in one step
-    //my first implementation will use literal lat and lon, we'll build in geocoding API once this works
+    //now we need a 2 step process, to get the lat long of the city and then find the weather for that location
     //todo: error handling for null response
-    const lat = document.getElementById('lat').value;
-    const lon = document.getElementById('lon').value;
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
 
-    fetch(apiUrl)
+    //first step, geocoding city name into lat & lon
+    const city = document.getElementById('city').value.trim();
+    const state = document.getElementById('state').value.trim();
+    let lat, lon;
+
+    const geocodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},US&appid=${apiKey}`;
+
+    fetch(geocodeURL)
         .then(response => response.json())
         .then(data => {
-            weatherInfo.innerHTML = `<h2>Weather at Lat: ${data.coord.lat} Lon: ${data.coord.lon} is:</h2>
+            lat = data[0].lat;
+            lon = data[0].lon;
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+            return fetch(apiUrl);
+        })
+        //retrieved lat/lon and passed them back to OpenWeather, should have actual weather now    
+        .then(response => response.json())
+        .then(data => {
+            weatherInfo.innerHTML = `<h2>Weather in ${city}, ${state} (Lat: ${lat} Lon: ${lon}) is:</h2>
                                     <p>Temperature: ${data.main.temp} &#8457;</p>
                                     <p>Weather: ${data.weather[0].description}</p>`;
         })
